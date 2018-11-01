@@ -1,104 +1,67 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+#jamal benamors code
 
-# C extensions
-*.so
+import random
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+loyalty = open('SampleData2017.txt','r') #Reads from the text file "SampleData.txt"
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+loyalty_lines = loyalty.readlines() #Creates the list loyalty_lines, with each line of the file as one item
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-.hypothesis/
-.pytest_cache/
 
-# Translations
-*.mo
-*.pot
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
+def menu():
+    choice = input('----------------------------\nWhich option would you like?\n1 = read from file\n2 = write to file\n\t’)
+    if choice == '1':
+        option_A()
+    elif choice == '2':
+        option_B()
+    else:
+        print('that is an invalid choice')
+        menu()
 
-# Flask stuff:
-instance/
-.webassets-cache
 
-# Scrapy stuff:
-.scrapy
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
+	def option_A():
+		surname = input("What is your surname?\n:-")
+    		year = str(input("What is the year?\n:-"))
+        		randnum = random.randint(100,999)
+       		letters = surname[0:3]
+        		num = year[2:4]
+        		member_ID = str(randnum)+letters+num
+        		member = open("SampleData2017.txt","a")
+       		member.write(member_ID)
+        		member.write(",")
+    		 member.write(surname)
+   		 member.write(",")
+  		 member.write(year)
+  		 member.write(",")
+   		 member.write("Silver")
+   		  member.write(",")
+   		  member.write("0")
+   		  member.write(",")
+    		  member.write("0\n")
+       		 member.close()
 
-# Jupyter Notebook
-.ipynb_checkpoints
+	menu()
 
-# pyenv
-.python-version
 
-# celery beat schedule file
-celerybeat-schedule
 
-# SageMath parsed files
-*.sage.py
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+	def option_B():
+	
 
-# Spyder project settings
-.spyderproject
-.spyproject
+		loyalty = open('SampleData2017.txt','r') #Reads from the text file "SampleData.txt"
+        loyalty_lines = loyalty.readlines()
+        
+        memid=input("What is your member ID?\n:-")
 
-# Rope project settings
-.ropeproject
+		if memid==member_ID:
+                
+         print (member_ID,"\t ",surname.ljust(20),year_joined.ljust(20),membership_status.ljust(20),"\t",nights_booked.ljust(20),"\t",points_balance.ljust(20))
+	menu()
 
-# mkdocs documentation
-/site
 
-# mypy
-.mypy_cache/
+
+
+menu()
